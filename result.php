@@ -33,5 +33,8 @@ session_destroy();
         </div>
         <a href="start-quize.php" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Restart Quiz</a>
     </div>
+    <?php
+        $query = $connect->query("insert into ranking (score, user_id) values('$score_percentage','')");
+    ?>
 </body>
 </html>

@@ -71,8 +71,7 @@ if(isset($_POST['submit'])){
     $query=$connect->query("insert into users(name,gender,college_name,email,contact,password,c_password)value('$name','$gender','$college_name','$email','$contact','$password','$c_password') ");
     if($query){
         redirect('quiz.php');
-       
-
+       $_SESSION['user'] = $email;
     }
     else{
         message("error");

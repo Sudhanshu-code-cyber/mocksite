@@ -13,7 +13,7 @@
 <body class="bg-[#F6F4F0]">
     <?php include_once "includes/header.php"; ?>
     <div class="h-[650px] relative bg-red-400 w-full">
-    <img src="glenn-carstens-peters-npxXWgQ33ZQ-unsplash.jpg" class="w-full h-full object-cover" alt="">
+    <img src="assets/images/glenn-carstens-peters-npxXWgQ33ZQ-unsplash.jpg" class="w-full h-full object-cover" alt="">
 
     <!-- Signup Form Container -->
     <div class="absolute flex flex-col justify-center items-center right-10 top-10 bg-[#F6F4F0] p-8 rounded-lg shadow-2xl w-[550px]">
@@ -70,8 +70,7 @@ if(isset($_POST['submit'])){
 
     $query=$connect->query("insert into users(name,gender,college_name,email,contact,password,c_password)value('$name','$gender','$college_name','$email','$contact','$password','$c_password') ");
     if($query){
-        message("Register Successfully Down");
-        redirect('start-quize.php');
+        redirect('quiz.php');
        
 
     }

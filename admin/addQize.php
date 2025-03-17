@@ -16,7 +16,7 @@ include_once("../config/connect.php");
     <?php include_once "includes/header.php"; ?>
     <div class="flex flex-col justify-center items-center">
         <h2 class="font-semibold text-2xl p-2 text-center">Add Quiz</h2>
-        <form action="" method="POST" class="space-y-4 mt-8 w-[50rem] rounded shadow-xl bg-gray-400 p-5">
+        <form action="" method="POST" class="space-y-4 mt-30 w-[50rem] rounded shadow-xl bg-gray-400 p-5">
             <input type="text" name="quiz_title" placeholder="Quiz Title" required class="w-full p-2 border rounded">
             <input type="number" name="total_questions" placeholder="Total Questions" required
                 class="w-full p-2 border rounded">

@@ -44,7 +44,7 @@
                           <td class="border py-2 px-4 text-center"><?= $quiz['total_question']; ?></td>
                           <td class="border py-2 px-4 text-center"><?= $quiz['total_question'] * $quiz['right_answer_marks']; ?></td>
                           <td class="border py-2 px-4 text-center">
-                              <a href="" class="bg-red-500 text-white font-semibold py-1 px-4 rounded">Start</a>
+                              <a href="start-quize.php" class="bg-red-500 text-white font-semibold py-1 px-4 rounded">Start</a>
                           </td>
                       </tbody>
                   <?php endwhile; ?>

@@ -44,7 +44,7 @@ include_once "../config/connect.php";
                                 </td>
                                 <td class="p-2 border-y border-gray-600"><?= $quiz['time_limit']; ?></td>
                                 <td class="p-2 border-y border-gray-600">
-                                    <a href="" class="bg-green-600 px-2 py-1 text-white font-semibold">Start</a>
+                                    <a href="../start-quize.php" class="bg-green-600 px-2 py-1 text-white font-semibold">Start</a>
                                 </td>
                             </tr>
                         </tbody>
@@ -154,7 +154,7 @@ include_once "../config/connect.php";
                 <table class="w-[60rem]">
                     <div class="flex justify-between">
                         <h1 class="text-xl font-bold mb-5">Manage Quiz</h1>
-                        <a href="addQuiz.php"
+                        <a href="addQize.php"
                             class="text-lg bg-green-600 text-white rounded px-3 py-1 font-semibold mb-5">Add Quiz</a>
                     </div>
                     <thead>
@@ -168,7 +168,7 @@ include_once "../config/connect.php";
                         </tr>
                     </thead>
                     <?php
-                    $callingQuiz = $connect->query("select * from quiz");
+                    $callingQuiz = $connect->query("select * from quiz ");
                     while ($quiz = $callingQuiz->fetch_array()):
                         ?>
                         <tbody>
@@ -190,12 +190,12 @@ include_once "../config/connect.php";
 
                 </table>
             </div>
-            <div class="hidden p-4 overflow-y-auto h-[82vh] rounded-lg bg-gray-50 dark:bg-gray-800" id="question" role="tabpanel"
+            <div class="hidden p-4 overflow-y-auto h-auto mt-30 rounded-lg bg-gray-50 dark:bg-gray-800" id="question" role="tabpanel"
                 aria-labelledby="question-tab">
                 <div class="flex">
                     <form action="" method="POST" class="space-y-4">
                         <label for="test" class="block text-sm font-medium">Select Quiz:</label>
-                        <select name="topic" id="test" required class="w-full p-2 border rounded">
+                        <select name="topic" id="test"  class="w-full p-2 border rounded">
                             <option value="">-- Select Quiz --</option>
                             <?php 
                             $callingquiz = $connect->query("select * from quiz");
@@ -218,19 +218,16 @@ include_once "../config/connect.php";
                                 <input type="text" name="option4" placeholder="Option 4" required
                                     class="w-full p-2 border rounded">
                                 <label for="correct_answer" class="block text-sm font-medium">Correct Answer:</label>
-                                <select name="correct_answer"  required class="w-full p-2 border rounded">
-                                    <option value="1">Option 1</option>
-                                    <option value="2">Option 2</option>
-                                    <option value="3">Option 3</option>
-                                    <option value="4">Option 4</option>
-                                </select>
+                                <input type="text" name="correct_answer" placeholder="ans" required
+                                class="w-full p-2 border rounded">
+                                
                             </div>
                         </div>
-                        <button type="submit" name="submit"
+                        <button type="submit" name="save"
                             class="w-full bg-blue-500 text-white py-2 rounded hover:bg-blue-600">Submit</button>
                     </form>
                     <?php 
-                    if(isset(($_POST['submit']))){
+                    if(isset(($_POST['save']))){
                         $topic = $_POST['topic'];
                         $question = $_POST['question'];
                         $option1 = $_POST['option1'];

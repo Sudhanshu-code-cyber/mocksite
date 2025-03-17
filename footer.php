@@ -27,22 +27,23 @@
                                     <div class="flex flex-col gap-4">
                                         <input type="text" name="admin" placeholder="Enter Admin User Id"
                                             class="py-2 px-4 border border-gray-600 w-[50vh] rounded">
-                                        <input type="text" name="password" placeholder="Password"
+                                        <input type="password" name="password" placeholder="Password"
                                             class="py-2 px-4 border border-gray-600 w-[50vh] rounded">
-                                        <input type="submit" name="submit" value="login"
+                                        <input type="submit" name="login" value="login"
                                             class="py-2 bg-blue-600 text-white font-semibold px-4 border border-gray-600 w-[20vh] text-center rounded">
                                     </div>
                                 </form>
                                 <?php
-                                if (isset($_POST['submit'])) {
-                                    $admin_id = $_POST['admin'];
-                                    $password = $_POST['password'];
+                                if (isset($_POST['login'])) {
+                                    $admin = $_POST['admin'];
+                                    $password = $_POST['password']; 
 
-                                    $query = $connect->query("select * from admin where admin_id='$admin_id' and password='$password'");
-                                    $count = $query->num_rows;
-                                    if ($count) {
-                                        $_SESSION['admin'] = $admin_id;
+                                    $sql = $connect->query("SELECT * FROM admin WHERE admin='$admin' AND password='$password'");                                   
+                                    if ($sql->num_rows > 0) {
+                                        $_SESSION['admin'] = $admin;
                                         redirect("admin/index.php");
+                                    } else {
+                                        message("error!");
                                     }
                                 }
                                 ?>
@@ -80,9 +81,9 @@
 
                             <!-- Info -->
                             <div class="text-gray-800 space-y-1">
-                                <p class="text-lg font-semibold">Aman Kumar</p>
-                                <p class="text-sm">📞 +91 8227046826</p>
-                                <p class="text-sm">✉️ theaman6826@gmail.com</p>
+                                <p class="text-lg font-semibold">Sudhanshu Kumar</p>
+                                <p class="text-sm">📞 +91 9708798149</p>
+                                <p class="text-sm">✉️ sudhanshuaryan2005@gmail.com</p>
                                 <p class="text-sm">🎓 Purnea College, Purnea</p>
                             </div>
                         </div>
